@@ -41,7 +41,7 @@ jobs:
 
   # Run acceptance tests in a matrix with Terraform CLI versions
   test:
-    name: "Tests (OS: ${{ matrix.os }}"
+    name: "Tests (OS: ${{ matrix.os }})"
     needs: build
     runs-on: ${{ matrix.os }}
     timeout-minutes: 15
@@ -61,5 +61,5 @@ jobs:
         with:
           go-version-file: "go.mod"
 
-      - name: Run atest
+      - name: Run test
         run: make test
