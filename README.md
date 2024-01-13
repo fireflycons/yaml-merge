@@ -1,5 +1,7 @@
 # yaml-merge
 
+![build](https://img.shields.io/github/actions/workflow/status/fireflycons/yaml-merge/test.yml)
+
 Tool for merging several YAML or JSON documents into a single document. Can be useful in some CI/CD situations where you might have a layered configuration structure.
 
 Merged document can be output as either YAML or JSON
