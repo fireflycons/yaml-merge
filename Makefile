@@ -16,7 +16,7 @@ fmt:
 	gofmt -s -w -e .
 
 test:
-	$(GOTEST} -v -cover -timeout=120s -parallel=4 ./...
+	$(GOTEST) -v -cover -timeout=120s -parallel=4 ./...
 
 .PHONY: test/cover
 test/cover:
