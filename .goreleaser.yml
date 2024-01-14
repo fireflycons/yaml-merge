@@ -2,9 +2,7 @@
 # behavior.
 builds:
 - env:
-    # goreleaser does not work with CGO, it could also complicate
-    # usage by users in CI/CD systems like Terraform Cloud where
-    # they are unable to install libraries.
+    # goreleaser does not work with CGO
     - CGO_ENABLED=0
   mod_timestamp: '{{ .CommitTimestamp }}'
   flags:
@@ -38,7 +36,7 @@ checksum:
 signs:
   - artifacts: checksum
     args:
-      # if you are using this in a GitHub action or some other automated pipeline, you 
+      # if you are using this in a GitHub action or some other automated pipeline, you
       # need to pass the batch flag to indicate its not interactive.
       - "--batch"
       - "--local-user"
@@ -49,6 +47,6 @@ signs:
       - "${artifact}"
 release:
   # If you want to manually examine the release before its live, uncomment this line:
-  draft: true
+  draft: false
 changelog:
   skip: true

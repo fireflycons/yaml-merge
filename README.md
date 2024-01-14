@@ -4,7 +4,9 @@
 
 Tool for merging several YAML or JSON documents into a single document. Can be useful in some CI/CD situations where you might have a layered configuration structure.
 
-Merged document can be output as either YAML or JSON
+Merged document can be output as either YAML or JSON.
+
+The command is a standalone binary with no dependencies.
 
 ## Usage
 
@@ -40,4 +42,4 @@ Sequences are replaced. For example,
 
 In non-strict mode, attempting to merge
 mismatched types (e.g., merging a sequence into a map) replaces the old
-value with the new.
+value with the new. In strict mode, an error is reported.
