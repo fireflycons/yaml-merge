@@ -25,7 +25,7 @@ builds:
     - goos: windows
       goarch: '386'
     - goos: windows
-      gooarch: arm
+      goarch: arm
   binary: '{{ .ProjectName }}_v{{ .Version }}'
 archives:
 - format: zip
