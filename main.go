@@ -111,7 +111,7 @@ func mergeDocuments(strict, toJson bool, dest io.Writer, sources ...io.Reader) e
 	return nil
 }
 
-// merge performs the merge of element 'into' into element 'from'.
+// merge performs the merge of element 'from' into element 'into'.
 func merge(into, from interface{}, strict bool) (interface{}, error) {
 
 	switch {
@@ -128,7 +128,7 @@ func merge(into, from interface{}, strict bool) (interface{}, error) {
 		// Both elements are a sequence
 		return from, nil
 	case isMapping(into) && isMapping(from):
-		// Both elements are a map (the most usual case)
+		// Both elements are a map
 		return mergeMapping(into.(mapping), from.(mapping), strict)
 	case !strict:
 		// value types don't match, so no merge is possible. For backward
@@ -140,7 +140,7 @@ func merge(into, from interface{}, strict bool) (interface{}, error) {
 	}
 }
 
-// mergeMapping recursively merges map `into` into map `from`.
+// mergeMapping recursively merges map `from` into map `into`.
 func mergeMapping(into, from mapping, strict bool) (mapping, error) {
 	// Output map will be at least the same number of keys as the `into` doc
 	merged := make(mapping, len(into))
